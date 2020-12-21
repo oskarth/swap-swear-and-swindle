@@ -1,5 +1,38 @@
 #+TITLE: Notes
 
+* December 21
+Want to deploy SimpleSwap through SimpleSwapFactory.
+
+deploy vs new: both are used to deploy contract. Deploy is a singleton and can
+be accessed with `MyContract.deployed()` New is used to avoid side effects in
+tests, and similar.
+
+Setting issuer with accounts[0].
+
+When deploying SimpleSwap, this is done through SimpleSwapFactory to keep state.
+This means it doesn't show up as a deployed contract in Ganache. It is visible
+in logs though.
+
+How do I interact with SimpleSwap?
+
+We can get access to SimpleSwapFactory through REPL with:
+
+var contract = await SimpleSwapFactory.at(SimpleSwapFactory.address)
+
+It is async...need to await, but it isn't a promise for some backwards
+compatible reason so it seems like you can just assign it. Not the case.
+
+var foo = await ERC20Token("0x3d84f98d14a7ccd313a47a067eb934cae8d6b48e")
+
+Let's deposit some money here (as A). Then we want another account (B) to redeem
+cheque. This should send money to B swap, or alternative to B address directly.
+
+A should also be able to withdraw directly from contract, assuming no hard
+deposit has been set.
+
+Just transfer to that contract address and balance should increase. Need to
+first mint with ERC20 token contract first I believe. Let's revisit.
+
 * Misc imported notes
 
 To re-run migrations we use `truffle migrate --reset`.
