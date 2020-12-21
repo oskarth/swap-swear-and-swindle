@@ -33,7 +33,7 @@ module.exports = {
     coverage: {
       host: "localhost",
       network_id: "*",
-      port: 8545,         // <-- If you change this, also set the port option in .solcover.js.
+      port: 7545,         // <-- If you change this, also set the port option in .solcover.js.
     }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
