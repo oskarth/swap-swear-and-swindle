@@ -11,7 +11,8 @@
     "url": "https://github.com/ethersphere/swap-swear-and-swindle.git"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^3.1.0"
+    "@openzeppelin/contracts": "^3.1.0",
+    "web3": "^1.3.1"
   },
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.6",
