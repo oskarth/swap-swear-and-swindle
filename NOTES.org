@@ -1,0 +1,30 @@
+#+TITLE: Notes
+
+* Misc imported notes
+
+To re-run migrations we use `truffle migrate --reset`.
+
+Ganache GUI is running on 7545.
+
+Mind the gas limit, can be set as command line argument `npx ganache-cli -l
+10000000` or in Ganache UI.
+
+The goal is to get end to end cheque sending etc working. This requires:
+
+- ERC20 token
+- SimpleSwapFactory
+- SimpleSwap
+
+And then some interactive use of these.
+
+To get contract creation code we can fire up a node REPL and do:
+`web3.eth.getCode("0x9A370560A64f9Bd7a7BB63CCc41162A52aa33096")`. This will show
+contract code and constructor code for SimpleSwapFactory, which is 64
+zero-padded address.
+
+Initially tried doing this in nim-waku repo using nim-web3, but ran into issues
+with not being able to have constructor take argument. See
+https://github.com/status-im/nim-web3/issues/33
+
+Instead, doing it in this repository first to see end to end flow. Doing it with
+Ganache for simplicity first. Later on this can use Goerli or similar.
